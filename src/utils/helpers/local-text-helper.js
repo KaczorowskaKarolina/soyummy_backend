@@ -1,5 +1,6 @@
 export function turkishToEnglish(text) {
-  return text.replace(/Ğ/gim, 'g')
+  return text
+    .replace(/Ğ/gim, 'g')
     .replace(/Ü/gim, 'u')
     .replace(/Ş/gim, 's')
     .replace(/I/gim, 'i')

@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express';
 import cors from 'cors';
 import compression from 'compression';
 import morgan from 'morgan';
@@ -10,13 +10,13 @@ import { rateLimiter } from '../api/middlewares/index.js';
 import { jwtSecretKey } from '../config/index.js';
 import bodyParser from 'body-parser';
 
-export default (app) => {
-  process.on('uncaughtException', async (error) => {
+export default app => {
+  process.on('uncaughtException', async error => {
     // console.log(error);
     logger('00001', '', error.message, 'Uncaught Exception', '');
   });
 
-  process.on('unhandledRejection', async (ex) => {
+  process.on('unhandledRejection', async ex => {
     // console.log(ex);
     logger('00002', '', ex.message, 'Unhandled Rejection', '');
   });
@@ -41,19 +41,24 @@ export default (app) => {
   app.use(prefix, routes);
 
   app.get('/', (_req, res) => {
-    return res.status(200).json({
-      resultMessage: {
-        en: 'Project is successfully working...',
-        tr: 'Proje başarılı bir şekilde çalışıyor...'
-      },
-      resultCode: '00004'
-    }).end();
+    return res
+      .status(200)
+      .json({
+        resultMessage: {
+          en: 'Project is successfully working...',
+          tr: 'Proje başarılı bir şekilde çalışıyor...',
+        },
+        resultCode: '00004',
+      })
+      .end();
   });
 
   app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.header(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    );
     res.header('Content-Security-Policy-Report-Only', 'default-src: https:');
     if (req.method === 'OPTIONS') {
       res.header('Access-Control-Allow-Methods', 'PUT POST PATCH DELETE GET');
@@ -83,10 +88,9 @@ export default (app) => {
     return res.json({
       resultMessage: {
         en: error.message,
-        tr: error.message
+        tr: error.message,
       },
       resultCode: resultCode,
     });
-
   });
-}
+};
