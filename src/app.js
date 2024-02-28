@@ -14,4 +14,4 @@ app.listen(port, err => {
   console.log(`Server is running on ${port}`);
 });
 
-export default app
+export default app;

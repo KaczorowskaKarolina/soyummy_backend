@@ -4,7 +4,8 @@ export default {
     info: {
       title: 'Nodejs-Starter-Template API',
       version: '1.0.0',
-      description: 'The API documentation of a boilerplate/starter project for quickly building RESTful APIs using Node.js, Express, and Mongoose.',
+      description:
+        'The API documentation of a boilerplate/starter project for quickly building RESTful APIs using Node.js, Express, and Mongoose.',
       license: {
         name: 'MIT',
         url: 'https://choosealicense.com/licenses/mit/',
@@ -24,15 +25,15 @@ export default {
   },
   tags: [
     {
-      "name": "User",
-      "description": "API for users"
-    }
+      name: 'User',
+      description: 'API for users',
+    },
   ],
   apis: [
-    "src/models/*.js",
-    "src/utils/helpers/*.js",
-    "src/api/controllers/user/*.js",
-    "src/api/controllers/user/edit/*.js",
-    "src/api/controllers/user/auth/*.js"
-  ]
+    'src/models/*.js',
+    'src/utils/helpers/*.js',
+    'src/api/controllers/user/*.js',
+    'src/api/controllers/user/edit/*.js',
+    'src/api/controllers/user/auth/*.js',
+  ],
 };
