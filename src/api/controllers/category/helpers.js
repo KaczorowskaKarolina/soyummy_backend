@@ -1,5 +1,5 @@
-import { Recipe } from '../../../models';
-import { Category } from '../../../models';
+import Recipe from '../../../models/recipe.js';
+import Category from '../../../models/category.js';
 
 const getRecipesFromDbCategory = async ({
   page = 0,
