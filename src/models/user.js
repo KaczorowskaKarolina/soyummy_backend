@@ -75,7 +75,8 @@ const userSchema = new Schema(
     //NOTE: To check whether the user skipped the email-verification step or not. You can delete the unverified accounts day by day.
     isVerified: {
       type: Boolean,
-      required: true,
+      // required: true,
+      default: false,
     },
     deviceId: {
       type: String,
@@ -84,7 +85,8 @@ const userSchema = new Schema(
     platform: {
       type: String,
       enum: ['Android', 'IOS'],
-      required: true,
+      // required: true,
+      default: 'Android',
     },
     //NOTE: In case the user delete its account, you can store its non-personalized information anonymously.
     deletedAt: {
