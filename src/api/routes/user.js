@@ -11,6 +11,12 @@ import {
   register,
   sendVerificationCode,
   verifyEmail,
+  addProduct,
+  addRecipe,
+  getShoppingList,
+  getUsersRecipes,
+  removeProduct,
+  removeRecipe,
 } from '../controllers/user/index.js';
 import { auth, imageUpload } from '../middlewares/index.js';
 
@@ -31,5 +37,19 @@ router.put('/', auth, imageUpload, editUser);
 
 router.get('/', auth, getUser);
 router.delete('/', auth, deleteUser);
+
+// FUNCTIONALITY
+router.get('/shopping', getShoppingList);
+// router.get('/shopping', auth,  getShoppingList);
+router.post('/shopping', addProduct);
+// router.post('/shopping', auth, addProduct);
+router.delete('/shopping', removeProduct);
+// router.delete('/shopping', auth, removeProduct);
+router.get('/ownRecipes', getUsersRecipes);
+// router.get('/ownRecipes', auth, getUsersRecipes);
+router.post('/ownRecipes', addRecipe);
+// router.post('/ownRecipes', auth, addRecipe);
+router.delete('/ownRecipes', removeRecipe);
+// router.delete('/ownRecipes', auth, removeRecipe);
 
 export default router;
