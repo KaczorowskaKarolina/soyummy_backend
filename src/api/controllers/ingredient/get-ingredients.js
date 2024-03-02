@@ -13,4 +13,4 @@ const getAllIngredients = async (req, res, next) => {
   }
 };
 
-export { getAllIngredients };
+export default getAllIngredients;

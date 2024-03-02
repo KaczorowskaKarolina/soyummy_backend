@@ -19,4 +19,4 @@ const getRecipesByIngredient = async (req, res, next) => {
   }
 };
 
-export { getRecipesByIngredient };
+export default getRecipesByIngredient;

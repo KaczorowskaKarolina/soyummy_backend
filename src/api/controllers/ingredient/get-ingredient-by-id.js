@@ -14,4 +14,4 @@ const getIngredientById = async (req, res, next) => {
   }
 };
 
-export { getIngredientById };
+export default getIngredientById;
