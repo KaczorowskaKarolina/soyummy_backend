@@ -11,4 +11,4 @@ async function addToFavorites(req, res, next) {
   }
 }
 
-export { addToFavorites };
+export default addToFavorites;

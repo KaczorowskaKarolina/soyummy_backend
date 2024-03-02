@@ -14,4 +14,4 @@ const getPopularRecipes = async (req, res, next) => {
   }
 };
 
-export { getPopularRecipes };
+export default getPopularRecipes;

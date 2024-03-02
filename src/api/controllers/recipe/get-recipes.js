@@ -14,4 +14,4 @@ const getRecipesQuery = async (req, res, next) => {
   }
 };
 
-export { getRecipesQuery };
+export default getRecipesQuery;

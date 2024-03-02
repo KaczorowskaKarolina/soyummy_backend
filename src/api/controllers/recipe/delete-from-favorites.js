@@ -14,4 +14,4 @@ async function deleteFromFavorites(req, res, next) {
   }
 }
 
-export { deleteFromFavorites };
+export default deleteFromFavorites;
