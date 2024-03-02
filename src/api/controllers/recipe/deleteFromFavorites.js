@@ -1,4 +1,4 @@
-import { deleteFromFavoritesInDb } from '#handlers/recipesHandlers.js';
+import { deleteFromFavoritesInDb } from './helpers.js';
 
 async function deleteFromFavorites(req, res, next) {
   try {

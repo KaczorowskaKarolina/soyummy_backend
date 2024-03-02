@@ -1,4 +1,4 @@
-import { getAllIngredientsFromDb } from '#handlers/ingredientsHandlers.js';
+import { getAllIngredientsFromDb } from './helpers.js';
 
 const getAllIngredients = async (req, res, next) => {
   try {

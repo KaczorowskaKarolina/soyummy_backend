@@ -14,3 +14,11 @@ export { default as editUser } from './edit/edit-user.js';
 // OTHER
 export { default as getUser } from './get-user.js';
 export { default as deleteUser } from './delete-user.js';
+
+// USERS FUNCTIONALITY
+export { default as addProduct } from './add-product.js';
+export { default as addRecipe } from './add-recipe.js';
+export { default as getShoppingList } from './get-shopping-list.js';
+export { default as getUsersRecipes } from './get-users-recipes.js';
+export { default as removeProduct } from './remove-product.js';
+export { default as removeRecipe } from './remove-recipe.js';

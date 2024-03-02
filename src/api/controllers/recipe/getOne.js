@@ -1,4 +1,4 @@
-import { getRecipeByIdFromDb } from '#handlers/recipesHandlers.js';
+import { getRecipeByIdFromDb } from './helpers.js';
 
 const getRecipeById = async (req, res, next) => {
   try {
