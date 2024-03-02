@@ -41,7 +41,7 @@ export default async (req, res) => {
     req.body.email,
     req.body.name,
     emailCode,
-    req.body.language,
+    (req.body.language = 'en'),
     'register',
     req,
     res
