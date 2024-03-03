@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
-import { Recipe } from '../../../models';
-import { Ingredient } from '../../../models';
+import { Recipe } from '../../../models/index.js';
+import { Ingredient } from '../../../models/index.js';
 
 const getAllIngredientsFromDb = async () => {
   return await Ingredient.find({});

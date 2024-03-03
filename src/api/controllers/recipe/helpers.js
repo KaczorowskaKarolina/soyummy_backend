@@ -1,4 +1,4 @@
-import { Recipe } from '../../../models';
+import { Recipe } from '../../../models/index.js';
 import { Types } from 'mongoose';
 
 const getRecipeByIdFromDb = async recipeId => {
