@@ -8,8 +8,8 @@ import {
 const router = Router();
 
 // CATEGORY
-router.get('/cotegory', getCategories);
-// router.get('/cotegory', auth, getCategories);
+router.get('/category', getCategories);
+// router.get('/category', auth, getCategories);
 router.get('/category/:recipeId', getRecipesByCategory);
 // router.get('/category/:recipeId', auth, getRecipesByCategory);
 
