@@ -36,16 +36,16 @@ export default async (req, res) => {
 
   const hashed = await hash(req.body.password, 10);
 
-  const emailCode = generateRandomCode(4);
-  await sendCodeToEmail(
-    req.body.email,
-    req.body.name,
-    emailCode,
-    (req.body.language = 'en'),
-    'register',
-    req,
-    res
-  );
+  // const emailCode = generateRandomCode(4);
+  // await sendCodeToEmail(
+  //   req.body.email,
+  //   req.body.name,
+  //   emailCode,
+  //   (req.body.language = 'en'),
+  //   'register',
+  //   req,
+  //   res
+  // );
 
   let username = '';
   let tempName = '';
@@ -82,10 +82,19 @@ export default async (req, res) => {
     return res.status(500).json(errorHelper('00034', req, err.message));
   });
 
-  user.password = null;
-
   const confirmCodeToken = signConfirmCodeToken(user._id, emailCode);
-
+  user.confirmCode = confirmCodeToken;
+  await user.save();
+  await sendCodeToEmail(
+    req.body.email,
+    user.name,
+    confirmCodeToken,
+    user.language,
+    'newCode',
+    req,
+    res
+  );
+  user.password = null;
   logger('00035', user._id, getText('en', '00035'), 'Info', req);
   return res.status(200).json({
     resultMessage: { en: getText('en', '00035'), tr: getText('tr', '00035') },
