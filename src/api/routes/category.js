@@ -9,8 +9,8 @@ const router = Router();
 
 // CATEGORY
 router.get('/', getCategories);
-// router.get('/category', auth, getCategories);
-router.get('/:recipeId', getRecipesByCategory);
-// router.get('/category/:recipeId', auth, getRecipesByCategory);
+// router.get('/', auth, getCategories);
+router.get('/:category', getRecipesByCategory);
+// router.get('/category/:category', auth, getRecipesByCategory);
 
 export default router;
