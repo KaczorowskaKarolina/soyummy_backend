@@ -26,6 +26,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    confirmCode: {
+      type: String,
+      default: '',
+    },
     createdRecipes: {
       type: Array,
       select: false,
