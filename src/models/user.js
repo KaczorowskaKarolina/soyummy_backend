@@ -28,9 +28,11 @@ const userSchema = new Schema(
     },
     createdRecipes: {
       type: Array,
+      select: false,
     },
     shoppingList: {
       type: Array,
+      select: false,
     },
     /*NOTE: If you are using admin panel and controllers specific to admin panel,
       you can control the authority of users with the help of this field.*/
