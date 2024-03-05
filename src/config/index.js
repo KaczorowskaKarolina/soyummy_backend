@@ -15,6 +15,7 @@ const {
   AWS_REGION,
   BUCKET_NAME,
   EMAIL_API_KEY,
+  USED_EMAIL,
 } = process.env;
 
 export const port = PORT || 3001;
@@ -28,3 +29,4 @@ export const bucketName = BUCKET_NAME;
 export const prefix = '/api';
 export const specs = '/docs';
 export const emailApiKey = EMAIL_API_KEY;
+export const usedEmail = USED_EMAIL;

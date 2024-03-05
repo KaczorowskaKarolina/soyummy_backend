@@ -7,6 +7,7 @@ import {
   awsSecretAccessKey,
   awsRegion,
   emailApiKey,
+  usedEmail,
 } from '../config/index.js';
 // import pkg from 'aws-sdk';
 // const { config, SES } = pkg;
@@ -43,7 +44,7 @@ export default async (email, name, confirmCode, lang, type, req, res) => {
     // }
 
     const emailInfo = {
-      from: 'smalec1236@gmail.com',
+      from: usedEmail,
       to: email,
       subject: 'SoYummy - verify email',
       text: `Welcome ${name},\n Thank you for joining us. To verify email please click the link below.`,
