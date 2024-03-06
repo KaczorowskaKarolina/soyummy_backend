@@ -45,16 +45,19 @@ async function addRecipe(req, res, next) {
     // );
 
     const form = new FormData();
-    new reader = new FileReader();
-    reader.readAsDataURL(req.files[0])
-    form.append('image', reader)
+    reader = new FileReader();
+    reader.readAsDataURL(req.files[0]);
+    form.append('image', reader);
 
-const image = await fetch(`https://api.imgbb.com/1/upload/?key=${imageApiKey}`, {method: 'POST', body: form})
+    const image = await fetch(
+      `https://api.imgbb.com/1/upload/?key=${imageApiKey}`,
+      { method: 'POST', body: form }
+    );
     if (image) {
       newRecipe.thumb = img.url;
       newRecipe.preview = img.display_url;
-}
-    
+    }
+
     await newRecipe.save();
     user.createdRecipes.push(newRecipe);
     await user.save();
