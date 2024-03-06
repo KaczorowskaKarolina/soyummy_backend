@@ -9,6 +9,7 @@ async function deleteFromFavorites(req, res, next) {
     return res.status(204).json({
       resultMassage: { en: getText('en', '00097') },
       resultCode: '00097',
+      recipeId,
     });
   } catch (error) {
     return next(error);

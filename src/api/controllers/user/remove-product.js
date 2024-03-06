@@ -32,6 +32,7 @@ async function removeProduct(req, res, next) {
     return res.status(204).json({
       resultMassage: { en: getText('en', '00105') },
       resultCode: '00105',
+      idProduct,
     });
   } catch (error) {
     return next(error);

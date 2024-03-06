@@ -13,21 +13,21 @@ async function addProduct(req, res, next) {
     const product = req.body;
     const user = await getUserById(id);
     if (!user) {
-      return res
-        .status(401)
-        .json({
-          resultMassage: { en: getText('en', '00052') },
-          resultCode: '00052',
-        });
+      return res.status(401).json({
+        resultMassage: { en: getText('en', '00052') },
+        resultCode: '00052',
+      });
     }
-    user.shoppingList.push({
+    const newProduct = {
       _id: new Types.ObjectId(product.id),
       measure: product.measure,
-    });
+    };
+    user.shoppingList.push(newProduct);
     await user.save();
     return res.status(204).json({
       resultMassage: { en: getText('en', '00098') },
       resultCode: '00098',
+      newProduct,
     });
   } catch (error) {
     return next(error);

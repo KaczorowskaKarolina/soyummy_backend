@@ -34,6 +34,7 @@ async function removeRecipe(req, res, next) {
     return res.status(204).json({
       resultMassage: { en: getText('en', '00107') },
       resultCode: '00107',
+      recipeId,
     });
   } catch (error) {
     return next(error);
