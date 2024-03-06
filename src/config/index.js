@@ -16,6 +16,7 @@ const {
   BUCKET_NAME,
   EMAIL_API_KEY,
   USED_EMAIL,
+  IMAGE_API_KEY,
 } = process.env;
 
 export const port = PORT || 3001;
@@ -30,3 +31,4 @@ export const prefix = '/api';
 export const specs = '/docs';
 export const emailApiKey = EMAIL_API_KEY;
 export const usedEmail = USED_EMAIL;
+export const imageApiKey = IMAGE_API_KEY;
