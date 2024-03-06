@@ -5,6 +5,7 @@ import {
   getOneRecipe,
   getPopular,
   getRecipes,
+  getFavorites,
 } from '../controllers/recipe/index.js';
 // import { auth, imageUpload } from '../middlewares/index.js';
 
@@ -15,6 +16,8 @@ router.get('/', getRecipes);
 // router.get('/category', auth, getRecipes);
 router.get('/popular', getPopular);
 // router.get('/popular', auth, getPopular);
+router.get('/favorites/', getFavorites);
+// router.get('/favorites', auth, getFavorites);
 router.post('/favorites/:recipeId', addToFavorites);
 // router.post('/favorites', auth, addToFavorites);
 router.delete('/favorites/:recipeId', deleteFromFavorites);
