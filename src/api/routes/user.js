@@ -47,8 +47,8 @@ router.delete('/shopping/:idProduct', removeProduct);
 // router.delete('/shopping/:idProduct', auth, removeProduct);
 router.get('/ownRecipes', getUsersRecipes);
 // router.get('/ownRecipes', auth, getUsersRecipes);
-router.post('/ownRecipes', addRecipe);
-// router.post('/ownRecipes', auth, addRecipe);
+router.post('/ownRecipes', imageUpload, addRecipe);
+// router.post('/ownRecipes', auth, imageUpload, addRecipe);
 router.delete('/ownRecipes/:recipeId', removeRecipe);
 // router.delete('/ownRecipes', auth, removeRecipe);
 
