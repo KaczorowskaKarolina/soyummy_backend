@@ -84,4 +84,5 @@ export default {
   '00105': 'Product removed sucessfully.',
   '00106': 'Recipe not found in user database.',
   '00107': 'Recipe deleted sucessfully.',
+  '00108': 'Unable to create recipe.',
 };
