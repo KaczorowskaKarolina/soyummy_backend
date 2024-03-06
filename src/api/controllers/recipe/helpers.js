@@ -56,8 +56,6 @@ export {
   getRecipeByIdFromDb,
   getRecipesFromDbQuery,
   getFavoritesRecipes,
-  createRecipeToDb,
-  deleteRecipeInDb,
   getPopularRecipesFromDb,
   addToFavoritesInDb,
   deleteFromFavoritesInDb,
