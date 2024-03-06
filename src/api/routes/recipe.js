@@ -15,7 +15,7 @@ router.get('/', getRecipes);
 // router.get('/category', auth, getRecipes);
 router.get('/popular', getPopular);
 // router.get('/popular', auth, getPopular);
-router.post('/favorites', addToFavorites);
+router.post('/favorites/:recipeId', addToFavorites);
 // router.post('/favorites', auth, addToFavorites);
 router.delete('/favorites/:recipeId', deleteFromFavorites);
 // router.delete('/favorites/:recipeId', auth, deleteFromFavorites);
