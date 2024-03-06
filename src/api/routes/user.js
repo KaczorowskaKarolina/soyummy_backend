@@ -49,7 +49,7 @@ router.get('/ownRecipes', getUsersRecipes);
 // router.get('/ownRecipes', auth, getUsersRecipes);
 router.post('/ownRecipes', addRecipe);
 // router.post('/ownRecipes', auth, addRecipe);
-router.delete('/ownRecipes', removeRecipe);
+router.delete('/ownRecipes/:recipeId', removeRecipe);
 // router.delete('/ownRecipes', auth, removeRecipe);
 
 export default router;
