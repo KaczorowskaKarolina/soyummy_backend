@@ -33,7 +33,7 @@ router.post('/send-verification-code', sendVerificationCode);
 
 // EDIT
 router.post('/change-password', auth, changePassword);
-router.put('/', auth, imageUpload, editUser);
+router.put('/', auth, imageUpload.single('image'), editUser);
 
 router.get('/', auth, getUser);
 router.delete('/', auth, deleteUser);
@@ -47,8 +47,8 @@ router.delete('/shopping/:idProduct', removeProduct);
 // router.delete('/shopping/:idProduct', auth, removeProduct);
 router.get('/ownRecipes', getUsersRecipes);
 // router.get('/ownRecipes', auth, getUsersRecipes);
-router.post('/ownRecipes', imageUpload, addRecipe);
-// router.post('/ownRecipes', auth, imageUpload, addRecipe);
+// router.post('/ownRecipes', imageUpload, addRecipe);
+router.post('/ownRecipes', auth, imageUpload.single('image'), addRecipe);
 router.delete('/ownRecipes/:recipeId', removeRecipe);
 // router.delete('/ownRecipes', auth, removeRecipe);
 
