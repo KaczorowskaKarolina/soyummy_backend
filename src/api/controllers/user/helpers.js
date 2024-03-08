@@ -21,4 +21,20 @@ async function getUserById(id) {
   return user;
 }
 
-export { getUserById, createRecipeToDb, deleteRecipeInDb };
+async function getOnlyRecipes(id) {
+  const user = await User.findById(id).select('createdRecipes');
+  return user;
+}
+
+async function getOnlyShopping(id) {
+  const user = await User.findById(id).select('shoppingList');
+  return user;
+}
+
+export {
+  getUserById,
+  createRecipeToDb,
+  deleteRecipeInDb,
+  getOnlyRecipes,
+  getOnlyShopping,
+};
