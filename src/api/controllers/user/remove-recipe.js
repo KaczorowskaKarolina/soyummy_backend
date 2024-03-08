@@ -1,18 +1,18 @@
 import { getText } from '../../../utils/index.js';
-import { getUserById } from './helpers.js';
+import { getOnlyRecipes } from './helpers.js';
 import { deleteRecipeInDb } from './helpers.js';
 import { Types } from 'mongoose';
 
 async function removeRecipe(req, res, next) {
   try {
-    const id = req.user.id;
+    const id = req.user._id;
     if (!id)
       return res.status(401).json({
         resultMassage: { en: getText('en', '00017') },
         resultCode: '00017',
       });
     const { recipeId } = req.params;
-    const user = await getUserById(id);
+    const user = await getOnlyRecipes(id);
     if (!user) {
       return res.status(401).json({
         resultMassage: { en: getText('en', '00052') },
