@@ -102,8 +102,6 @@ export default async (req, res, next) => {
     });
   } catch (error) {
     return next(error);
-  } finally {
-    console.log('Test');
   }
 };
 
