@@ -18,6 +18,7 @@ const getRecipesFromDbQuery = async ({ page = 0, limit = 6, query = '' }) => {
 };
 
 const getFavoritesRecipes = async ({ userId, page = 0, limit = 4 }) => {
+  console.log(userId);
   const recipes = await Recipe.find({
     favorites: new Types.ObjectId(userId),
   })
@@ -47,7 +48,7 @@ const addToFavoritesInDb = async ({ userId, recipeId }) => {
 
 const deleteFromFavoritesInDb = async ({ userId, recipeId }) => {
   const recipe = await Recipe.findById(recipeId);
-  recipe.favorites.pull(userId);
+  recipe.favorites.pull(new Types.ObjectId(userId));
   await recipe.save();
   return;
 };

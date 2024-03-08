@@ -3,8 +3,8 @@ import { getRecipeByIdFromDb } from './helpers.js';
 
 const getRecipeById = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const recipes = await getRecipeByIdFromDb(id);
+    const { recipeId } = req.params;
+    const recipes = await getRecipeByIdFromDb(recipeId);
     return res.status(200).json({
       resultMassage: { en: getText('en', '00094') },
       resultCode: '00094',

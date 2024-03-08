@@ -3,15 +3,13 @@ import { addToFavoritesInDb } from './helpers.js';
 
 async function addToFavorites(req, res, next) {
   try {
-    const id = req.user.id;
+    const id = req.user._id;
     const { recipeId } = req.params;
     await addToFavoritesInDb({ userId: id, recipeId });
-    return res
-      .status(204)
-      .json({
-        resultMassage: { en: getText('en', '00096') },
-        resultCode: '00096',
-      });
+    return res.status(204).json({
+      resultMassage: { en: getText('en', '00096') },
+      resultCode: '00096',
+    });
   } catch (error) {
     return next(error);
   }
