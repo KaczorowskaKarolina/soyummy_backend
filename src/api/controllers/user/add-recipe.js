@@ -1,5 +1,5 @@
 import { getText } from '../../../utils/index.js';
-import { getUserById } from './helpers.js';
+import { getOnlyRecipes } from './helpers.js';
 import { createRecipeToDb } from './helpers.js';
 import { imageApiKey } from '../../../config/index.js';
 import fs from 'fs/promises';
@@ -15,8 +15,7 @@ async function addRecipe(req, res, next) {
         resultCode: '00017',
       });
     const recipe = JSON.parse(req.body.recipe);
-    const user = await getUserById(id);
-
+    const user = await getOnlyRecipes(id);
     if (!user) {
       return res.status(401).json({
         resultMassage: { en: getText('en', '00052') },
