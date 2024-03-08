@@ -18,7 +18,7 @@ import {
   removeProduct,
   removeRecipe,
 } from '../controllers/user/index.js';
-import { auth, imageUpload } from '../middlewares/index.js';
+import { auth, fileMiddleware } from '../middlewares/index.js';
 
 const router = Router();
 
@@ -33,7 +33,7 @@ router.post('/send-verification-code', sendVerificationCode);
 
 // EDIT
 router.post('/change-password', auth, changePassword);
-router.put('/', auth, imageUpload.single('image'), editUser);
+router.put('/', auth, fileMiddleware.single('avatar'), editUser);
 
 router.get('/', auth, getUser);
 router.delete('/', auth, deleteUser);
@@ -47,8 +47,13 @@ router.delete('/shopping/:idProduct', removeProduct);
 // router.delete('/shopping/:idProduct', auth, removeProduct);
 router.get('/ownRecipes', getUsersRecipes);
 // router.get('/ownRecipes', auth, getUsersRecipes);
-// router.post('/ownRecipes', imageUpload, addRecipe);
-router.post('/ownRecipes', auth, imageUpload.single('image'), addRecipe);
+// router.post('/ownRecipes', fileMiddleware.single('recipeImage'), addRecipe);
+router.post(
+  '/ownRecipes',
+  auth,
+  fileMiddleware.single('recipeImage'),
+  addRecipe
+);
 router.delete('/ownRecipes/:recipeId', removeRecipe);
 // router.delete('/ownRecipes', auth, removeRecipe);
 
