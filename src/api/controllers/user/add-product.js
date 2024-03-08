@@ -1,17 +1,17 @@
 import { getText } from '../../../utils/index.js';
-import { getUserById } from './helpers.js';
+import { getOnlyShopping } from './helpers.js';
 import { Types } from 'mongoose';
 
 async function addProduct(req, res, next) {
   try {
-    const id = req.user.id;
+    const id = req.user._id;
     if (!id)
       return res.status(401).json({
         resultMassage: { en: getText('en', '00017') },
         resultCode: '00017',
       });
     const product = req.body;
-    const user = await getUserById(id);
+    const user = await getOnlyShopping(id);
     if (!user) {
       return res.status(401).json({
         resultMassage: { en: getText('en', '00052') },
