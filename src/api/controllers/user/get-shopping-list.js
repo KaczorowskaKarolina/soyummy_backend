@@ -1,15 +1,15 @@
 import { getText } from '../../../utils/index.js';
-import { getUserById } from './helpers.js';
+import { getOnlyShopping } from './helpers.js';
 
 async function getShoppingList(req, res, next) {
   try {
-    const id = req.user.id;
+    const id = req.user._id;
     if (!id)
       return res.status(401).json({
         resultMassage: { en: getText('en', '00017') },
         resultCode: '00017',
       });
-    const { shoppingList } = await getUserById(id);
+    const { shoppingList } = await getOnlyShopping(id);
     if (!shoppingList) {
       return res.status(404).json({
         resultMassage: { en: getText('en', '00102') },
