@@ -39,14 +39,14 @@ router.get('/', auth, getUser);
 router.delete('/', auth, deleteUser);
 
 // FUNCTIONALITY
-router.get('/shopping', getShoppingList);
-// router.get('/shopping', auth,  getShoppingList);
-router.post('/shopping', addProduct);
-// router.post('/shopping', auth, addProduct);
-router.delete('/shopping/:idProduct', removeProduct);
-// router.delete('/shopping/:idProduct', auth, removeProduct);
-router.get('/ownRecipes', getUsersRecipes);
-// router.get('/ownRecipes', auth, getUsersRecipes);
+// router.get('/shopping', getShoppingList);
+router.get('/shopping', auth, getShoppingList);
+// router.post('/shopping', addProduct);
+router.post('/shopping', auth, addProduct);
+// router.delete('/shopping/:idProduct', removeProduct);
+router.delete('/shopping/:idProduct', auth, removeProduct);
+// router.get('/ownRecipes', getUsersRecipes);
+router.get('/ownRecipes', auth, getUsersRecipes);
 // router.post('/ownRecipes', fileMiddleware.single('recipeImage'), addRecipe);
 router.post(
   '/ownRecipes',
@@ -54,7 +54,7 @@ router.post(
   fileMiddleware.single('recipeImage'),
   addRecipe
 );
-router.delete('/ownRecipes/:recipeId', removeRecipe);
-// router.delete('/ownRecipes', auth, removeRecipe);
+// router.delete('/ownRecipes/:recipeId', removeRecipe);
+router.delete('/ownRecipes/:recipeId', auth, removeRecipe);
 
 export default router;
