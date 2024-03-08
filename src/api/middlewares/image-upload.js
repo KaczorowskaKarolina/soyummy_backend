@@ -1,20 +1,17 @@
-import multer, { memoryStorage } from 'multer';
+import path from 'path';
+import multer from 'multer';
 
-const storage = memoryStorage();
-const fileFilter = (_req, file, cb) => {
-  if (
-    file.mimetype === 'image/jpeg' ||
-    file.mimetype === 'image/png' ||
-    file.mimetype === 'image/svg+xml'
-  ) {
-    cb(null, true);
-  } else {
-    cb(new Error('Please choose a valid image file.'), false);
-  }
-};
+const tmpDir = path.join(process.cwd(), 'src/server/tmp');
 
-export default multer({
-  storage: storage,
-  limits: { fileSize: 1000000 },
-  fileFilter: fileFilter,
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, tmpDir);
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
 });
+
+const fileMiddleware = multer({ storage });
+
+export { tmpDir, fileMiddleware };
