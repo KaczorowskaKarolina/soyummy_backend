@@ -1,17 +1,17 @@
 import { getText } from '../../../utils/index.js';
-import { getUserById } from './helpers.js';
+import { getOnlyShopping } from './helpers.js';
 import { Types } from 'mongoose';
 
 async function removeProduct(req, res, next) {
   try {
-    const id = req.user.id;
+    const id = req.user._id;
     if (!id)
       return res.status(401).json({
         resultMassage: { en: getText('en', '00017') },
         resultCode: '00017',
       });
-    const { idProduct } = req.params;
-    const user = await getUserById(id);
+    const product = req.body;
+    const user = await getOnlyShopping(id);
     if (!user) {
       return res.status(401).json({
         resultMassage: { en: getText('en', '00052') },
@@ -19,7 +19,11 @@ async function removeProduct(req, res, next) {
       });
     }
     const index = user.shoppingList.findIndex(
-      item => (item._id = new Types.ObjectId(idProduct))
+      item =>
+        (item = {
+          _id: new Types.ObjectId(product.id),
+          measure: product.measure,
+        })
     );
     if (index === -1) {
       return res.status(404).json({
@@ -32,7 +36,7 @@ async function removeProduct(req, res, next) {
     return res.status(204).json({
       resultMassage: { en: getText('en', '00105') },
       resultCode: '00105',
-      idProduct,
+      idProduct: product.id,
     });
   } catch (error) {
     return next(error);
