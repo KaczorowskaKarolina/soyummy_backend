@@ -26,6 +26,18 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    confirmCode: {
+      type: String,
+      default: '',
+    },
+    createdRecipes: {
+      type: Array,
+      select: false,
+    },
+    shoppingList: {
+      type: Array,
+      select: false,
+    },
     /*NOTE: If you are using admin panel and controllers specific to admin panel,
       you can control the authority of users with the help of this field.*/
     type: {
@@ -69,7 +81,8 @@ const userSchema = new Schema(
     //NOTE: To check whether the user skipped the email-verification step or not. You can delete the unverified accounts day by day.
     isVerified: {
       type: Boolean,
-      required: true,
+      // required: true,
+      default: false,
     },
     deviceId: {
       type: String,
@@ -78,7 +91,8 @@ const userSchema = new Schema(
     platform: {
       type: String,
       enum: ['Android', 'IOS'],
-      required: true,
+      // required: true,
+      default: 'Android',
     },
     //NOTE: In case the user delete its account, you can store its non-personalized information anonymously.
     deletedAt: {

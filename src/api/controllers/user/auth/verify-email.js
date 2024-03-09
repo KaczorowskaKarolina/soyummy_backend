@@ -13,14 +13,15 @@ import pkg from 'jsonwebtoken';
 const { verify } = pkg;
 
 export default async (req, res) => {
-  const { error } = validateVerifyEmail(req.body);
-  if (error)
-    return res
-      .status(400)
-      .json(errorHelper('00053', req, error.details[0].message));
+  // const { error } = validateVerifyEmail(req.body);
+  // if (error)
+  //   return res
+  //     .status(400)
+  //     .json(errorHelper('00053', req, error.details[0].message));
+  const { confirmCodeToken } = req.params;
 
   try {
-    req.user = verify(req.body.token, jwtSecretKey);
+    req.user = verify(confirmCodeToken, jwtSecretKey);
   } catch (err) {
     return res.status(400).json(errorHelper('00055', req, err.message));
   }
@@ -34,8 +35,8 @@ export default async (req, res) => {
 
   if (!exists) return res.status(400).json(errorHelper('00052', req));
 
-  if (req.body.code !== req.user.code)
-    return res.status(400).json(errorHelper('00054', req));
+  // if (req.body.code !== req.user.code)
+  //   return res.status(400).json(errorHelper('00054', req));
 
   await User.updateOne(
     { _id: req.user._id },
@@ -46,24 +47,19 @@ export default async (req, res) => {
 
   const accessToken = signAccessToken(req.user._id);
   const refreshToken = signRefreshToken(req.user._id);
-  await Token.updateOne(
-    { userId: req.user._id },
-    {
-      $set: {
-        userId: req.user._id,
-        refreshToken: refreshToken,
-        status: true,
-        expires: Date.now() + 604800000,
-        createdAt: Date.now(),
-        createdByIp: ipHelper(req),
-      },
-    },
-    {
-      upsert: true,
-    }
-  ).catch(err => {
+  try {
+    const token = new Token({
+      userId: req.user._id,
+      refreshToken: refreshToken,
+      status: true,
+      expiresIn: Date.now() + 604800000,
+      createdAt: Date.now(),
+      createdByIp: ipHelper(req),
+    });
+    await token.save();
+  } catch (err) {
     return res.status(500).json(errorHelper('00057', req, err.message));
-  });
+  }
 
   logger('00058', req.user._id, getText('en', '00058'), 'Info', req);
   return res.status(200).json({
