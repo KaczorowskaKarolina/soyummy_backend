@@ -48,7 +48,13 @@ export default async (email, name, confirmCode, lang, type, req, res) => {
       to: email,
       subject: 'SoYummy - verify email',
       text: `Welcome ${name},\n Thank you for joining us. To verify email please click the link below.`,
-      html: `<a href="http:localhost:3001/api/user/verify/${confirmCode}">Confirm email</a>`,
+      html: `<div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+                <h2 style="color: #333333;">Welcome!</h2>
+                <p style="color: #666666;">Thanks for creating account. To verify your account click in link below or copy paste in browser:</p>
+                <p><a href="http://localhost:3001/api/user/verify/${confirmCode}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #ffffff; text-decoration: none;">http://localhost:3001/api/user/verify/${confirmCode}</a></p>
+                <p style="color: #666666;">If you were not creating account, please ignore this message.</p>
+                <p style="color: #666666;">Thank you,<br>Team of Crypto</p>
+            </div>`,
     };
 
     try {
