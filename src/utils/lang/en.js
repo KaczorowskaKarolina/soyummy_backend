@@ -85,4 +85,8 @@ export default {
   '00106': 'Recipe not found in user database.',
   '00107': 'Recipe deleted sucessfully.',
   '00108': 'Unable to create recipe.',
+  '00109': 'User already subscribes to newsletter',
+  '00110': 'Subscribing to newsletter sucessful',
+  '00111': 'Unsubscribing to newsletter sucessful',
+  '00112': 'User already doesnt subscribe to newsletter',
 };

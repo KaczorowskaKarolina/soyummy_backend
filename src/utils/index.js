@@ -1,6 +1,7 @@
 export { default as logger } from './logger.js';
 export { default as getText } from './lang/get-text.js';
 export { default as sendCodeToEmail } from './send-code-to-email.js';
+export { default as sendNewsletterToEmail } from './send-newsletter-to-email.js';
 export { turkishToEnglish } from './helpers/local-text-helper.js';
 export {
   signAccessToken,
