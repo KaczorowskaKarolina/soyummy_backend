@@ -1,17 +1,17 @@
-import { User } from '../../../../models/index.js';
-import { validateEditUser } from '../../../validators/user.validator.js';
+import { User } from '../../../models/index.js';
+import { validateEditUser } from '../../validators/user.validator.js';
 import {
   errorHelper,
   logger,
   getText,
   turkishToEnglish,
-} from '../../../../utils/index.js';
+} from '../../../utils/index.js';
 import {
   awsAccessKey,
   awsSecretAccessKey,
   awsRegion,
   bucketName,
-} from '../../../../config/index.js';
+} from '../../../config/index.js';
 import aws from 'aws-sdk';
 const { S3 } = aws;
 

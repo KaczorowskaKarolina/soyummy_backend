@@ -12,8 +12,8 @@ export { default as changePassword } from './edit/change-password.js';
 export { default as editUser } from './edit/edit-user.js';
 
 // OTHER
-export { default as getUser } from './get-user.js';
-export { default as deleteUser } from './delete-user.js';
+export { default as getUser } from '../auth/get-user.js';
+export { default as deleteUser } from '../auth/delete-user.js';
 
 // USERS FUNCTIONALITY
 export { default as addProduct } from './add-product.js';
@@ -22,3 +22,5 @@ export { default as getShoppingList } from './get-shopping-list.js';
 export { default as getUsersRecipes } from './get-users-recipes.js';
 export { default as removeProduct } from './remove-product.js';
 export { default as removeRecipe } from './remove-recipe.js';
+export { default as newsletter } from './newsletter.js';
+export { default as stopNewsletter } from './stop-newsletter.js';
