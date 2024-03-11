@@ -6,7 +6,7 @@ import {
   logger,
   signAccessToken,
   signRefreshToken,
-} from '../../../../utils/index.js';
+} from '../../../utils/index.js';
 import bcrypt from 'bcryptjs';
 const { compare } = bcrypt;
 

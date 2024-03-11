@@ -1,5 +1,5 @@
 import { getText } from '../../../utils/index.js';
-import { getCategoriesFromDb } from '../category/helpers.js';
+import { getCategoriesFromDb } from './helpers.js';
 
 const getCategories = async (req, res, next) => {
   const categories = await getCategoriesFromDb();

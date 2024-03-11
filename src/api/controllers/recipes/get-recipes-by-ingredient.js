@@ -1,5 +1,5 @@
 import { getText } from '../../../utils/index.js';
-import { getRecipesFromDbIngredient } from '../ingredients/helpers.js';
+import { getRecipesFromDbIngredient } from './helpers.js';
 
 const getRecipesByIngredient = async (req, res, next) => {
   try {

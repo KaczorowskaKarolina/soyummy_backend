@@ -41,7 +41,7 @@ const userSchema = new Schema(
     newsletter: {
       type: Boolean,
       default: false,
-    }
+    },
     /*NOTE: If you are using admin panel and controllers specific to admin panel,
       you can control the authority of users with the help of this field.*/
     type: {

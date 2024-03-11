@@ -1,5 +1,5 @@
 import { getText } from '../../../utils/index.js';
-import { getRecipesFromDbCategory } from '../category/helpers.js';
+import { getRecipesFromDbCategory } from './helpers.js';
 
 const getRecipesByCategory = async (req, res, next) => {
   try {
