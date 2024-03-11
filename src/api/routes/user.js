@@ -14,7 +14,7 @@ import { auth, fileMiddleware } from '../middlewares/index.js';
 
 const router = Router();
 
-router.put('/', auth, fileMiddleware.single('avatar'), editUser);
+router.put('/edit', auth, fileMiddleware.single('avatar'), editUser);
 
 // FUNCTIONALITY
 router.post('/subscribe', auth, newsletter);

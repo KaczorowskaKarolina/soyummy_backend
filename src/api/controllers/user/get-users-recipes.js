@@ -3,7 +3,7 @@ import { getUserById } from './helpers.js';
 
 async function getUsersRecipes(req, res, next) {
   try {
-    const id = req.user.id;
+    const id = req.user._id;
     if (!id)
       return res.status(401).json({
         resultMassage: { en: getText('en', '00017') },
