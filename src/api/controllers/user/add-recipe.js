@@ -5,6 +5,7 @@ import { imageApiKey } from '../../../config/index.js';
 import fs from 'fs/promises';
 import { tmpDir } from '../../middlewares/index.js';
 import imgbbUploader from 'imgbb-uploader';
+import { Types } from 'mongoose';
 
 async function addRecipe(req, res, next) {
   try {
@@ -55,7 +56,7 @@ async function addRecipe(req, res, next) {
     }
 
     await newRecipe.save();
-    user.createdRecipes.push(newRecipe);
+    user.createdRecipes.push(new Types.ObjectId(newRecipe.id));
     await user.save();
     return res.status(200).json({
       resultMassage: { en: getText('en', '00100') },

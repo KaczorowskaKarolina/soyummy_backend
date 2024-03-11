@@ -19,16 +19,7 @@ async function removeRecipe(req, res, next) {
         resultCode: '00052',
       });
     }
-    const index = user.createdRecipes.findIndex(
-      item => (item._id = new Types.ObjectId(recipeId))
-    );
-    if (index === -1) {
-      return res.status(404).json({
-        resultMassage: { en: getText('en', '00106') },
-        resultCode: '00106',
-      });
-    }
-    user.createdRecipes.splice(index, 1);
+    user.createdRecipes.pull(new Types.ObjectId(recipeId));
     await deleteRecipeInDb(recipeId);
     await user.save();
     return res.status(204).json({

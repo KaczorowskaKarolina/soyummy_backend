@@ -89,4 +89,5 @@ export default {
   '00110': 'Subscribing to newsletter sucessful',
   '00111': 'Unsubscribing to newsletter sucessful',
   '00112': 'User already doesnt subscribe to newsletter',
+  '00113': 'User updated sucesfully',
 };

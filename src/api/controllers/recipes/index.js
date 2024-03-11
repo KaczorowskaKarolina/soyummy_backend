@@ -9,3 +9,4 @@ export { default as getRecipesByCategory } from './get-recipes-by-category.js';
 export { default as getIngredientById } from './get-ingredient-by-id.js';
 export { default as getIngredients } from './get-ingredients.js';
 export { default as getRecipesByIngredient } from './get-recipes-by-ingredient.js';
+export { default as getRecipesMainPage } from './main-page.js';

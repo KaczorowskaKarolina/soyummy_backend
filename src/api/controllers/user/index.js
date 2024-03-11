@@ -9,3 +9,4 @@ export { default as removeProduct } from './remove-product.js';
 export { default as removeRecipe } from './remove-recipe.js';
 export { default as newsletter } from './newsletter.js';
 export { default as stopNewsletter } from './stop-newsletter.js';
+export { default as updateUser } from './update-user.js';

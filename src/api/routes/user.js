@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import {
-  editUser,
   addProduct,
   addRecipe,
   getShoppingList,
@@ -9,12 +8,13 @@ import {
   removeRecipe,
   newsletter,
   stopNewsletter,
+  updateUser,
 } from '../controllers/user/index.js';
 import { auth, fileMiddleware } from '../middlewares/index.js';
 
 const router = Router();
 
-router.put('/edit', auth, fileMiddleware.single('avatar'), editUser);
+router.put('/edit', auth, fileMiddleware.single('avatar'), updateUser);
 
 // FUNCTIONALITY
 router.post('/subscribe', auth, newsletter);
