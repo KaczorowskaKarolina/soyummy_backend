@@ -39,7 +39,7 @@ async function updateUser(req, res, next) {
         })
       );
       user.photoUrl = image.url;
-      if (req.body) body = JSON.parse(req.body.update);
+      if (req.body.update) body = JSON.parse(req.body.update);
     }
 
     if (body.name) user.name = body.name;

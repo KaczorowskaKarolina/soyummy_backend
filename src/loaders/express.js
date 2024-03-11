@@ -36,6 +36,8 @@ export default app => {
   app.use(express.static('public'));
   app.disable('x-powered-by');
   app.disable('etag');
+  app.set('views', 'src/utils/templates/');
+  app.set('view engine', 'ejs');
 
   app.use(rateLimiter);
   app.use(prefix, routes);
