@@ -24,9 +24,10 @@ router.get('/favorites', auth, getFavorites);
 router.post('/favorites/:recipeId', auth, addToFavorites);
 router.delete('/favorites/:recipeId', auth, deleteFromFavorites);
 router.get('/ingredients/list', auth, getIngredients);
-router.get('/:recipeId', auth, getOneRecipe);
 router.get('/category/:category', auth, getRecipesByCategory);
 router.get('/ingredients/:ingredientId', auth, getRecipesByIngredient);
+router.get('/:recipeId', auth, getOneRecipe);
+
 // router.get('/ingredients/:id', auth, getIngredientById);
 
 export default router;
