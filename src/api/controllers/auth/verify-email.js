@@ -23,14 +23,16 @@ export default async (req, res) => {
   try {
     req.user = verify(confirmCodeToken, jwtSecretKey);
   } catch (err) {
-    return res.status(400).json(errorHelper('00055', req, err.message));
+    // return res.status(400).json(errorHelper('00055', req, err.message));
+    return res.redirect('http://localhost:3000/verifyEmail/?status=400');
   }
 
   const exists = await User.exists({
     _id: req.user._id,
     isActivated: true,
   }).catch(err => {
-    return res.status(500).json(errorHelper('00051', req, err.message));
+    // return res.status(500).json(errorHelper('00051', req, err.message));
+    return res.redirect('http://localhost:3000/verifyEmail/?status=404');
   });
 
   if (!exists) return res.status(400).json(errorHelper('00052', req));
@@ -42,7 +44,8 @@ export default async (req, res) => {
     { _id: req.user._id },
     { $set: { isVerified: true } }
   ).catch(err => {
-    return res.status(500).json(errorHelper('00056', req, err.message));
+    // return res.status(500).json(errorHelper('00056', req, err.message));
+    return res.redirect('http://localhost:3000/verifyEmail/?status=500');
   });
 
   const accessToken = signAccessToken(req.user._id);
@@ -58,11 +61,16 @@ export default async (req, res) => {
     });
     await token.save();
   } catch (err) {
-    return res.status(500).json(errorHelper('00057', req, err.message));
+    // return res.status(500).json(errorHelper('00057', req, err.message));
+    return res.redirect('http://localhost:3000/verifyEmail/?status=500');
   }
 
   logger('00058', req.user._id, getText('en', '00058'), 'Info', req);
-  return res.render('viewMessage', { message: getText('en', '00058') });
+  // return res.render('viewMessage', { message: getText('en', '00058') });
+  return res
+    .status(200)
+    .json({ message: getText('en', '00058') })
+    .redirect('http://localhost:3000/verifyEmail/?status=200');
 };
 
 /**
