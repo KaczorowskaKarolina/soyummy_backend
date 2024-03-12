@@ -60,6 +60,7 @@ async function updateUser(req, res, next) {
     return res.status(200).json({
       resultMassage: { en: getText('en', '00113') },
       resultCode: '00113',
+      user,
     });
   } catch (error) {
     return next(error);
