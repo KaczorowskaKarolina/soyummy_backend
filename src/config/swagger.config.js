@@ -25,15 +25,31 @@ export default {
   },
   tags: [
     {
+      name: 'Auth',
+      description: 'API for authorization',
+    },
+    {
       name: 'User',
       description: 'API for users',
+    },
+    {
+      name: 'Recipes',
+      description: 'API for recipes',
+    },
+    {
+      name: 'Ingredients',
+      description: 'API for ingredients',
+    },
+    {
+      name: 'Categories',
+      description: 'API for categories',
     },
   ],
   apis: [
     'src/models/*.js',
     'src/utils/helpers/*.js',
+    'src/api/controllers/auth/*.js',
     'src/api/controllers/user/*.js',
-    'src/api/controllers/user/edit/*.js',
-    'src/api/controllers/user/auth/*.js',
+    'src/api/controllers/recipes/*.js',
   ],
 };

@@ -29,7 +29,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user/forgot-password:
+ * /auth/forgot-password:
  *    post:
  *      summary: Saves the Password when Forgot
  *      parameters:
@@ -49,7 +49,7 @@ export default async (req, res) => {
  *                password:
  *                  type: string
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: The new password was created successfully.

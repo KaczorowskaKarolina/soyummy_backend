@@ -47,7 +47,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user/change-password:
+ * /auth/change-password:
  *    post:
  *      summary: Changes the Password
  *      parameters:
@@ -69,7 +69,7 @@ export default async (req, res) => {
  *                newPassword:
  *                  type: string
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: Your password was changed successfully.

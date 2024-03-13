@@ -16,3 +16,49 @@ const getRecipesQuery = async (req, res, next) => {
 };
 
 export default getRecipesQuery;
+
+/**
+ * @swagger
+ * /recipes/search:
+ *    get:
+ *      summary: Fetch recipes with query.
+ *      parameters:
+ *        - in: header
+ *          name: Authorization
+ *          schema:
+ *            type: string
+ *          description: Put access token here
+ *        - in: query
+ *          name: query
+ *          schema:
+ *            type: string
+ *          description: Put your query here
+ *      tags:
+ *        - Recipes
+ *      responses:
+ *        "200":
+ *          description: You sucessfully fetched recipes.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          resultMessage:
+ *                              $ref: '#/components/schemas/ResultMessage'
+ *                          resultCode:
+ *                              $ref: '#/components/schemas/ResultCode'
+ *                          recipes:
+ *                              type: array
+ *        "401":
+ *          description: Invalid token.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ *        "500":
+ *          description: An internal server error occurred, please try again.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ */

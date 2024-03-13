@@ -20,7 +20,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user/logout:
+ * /auth/logout:
  *    post:
  *      summary: Logout the User
  *      parameters:
@@ -30,7 +30,7 @@ export default async (req, res) => {
  *            type: string
  *          description: Put access token here
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: Successfully logged out.

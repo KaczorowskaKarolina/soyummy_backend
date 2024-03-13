@@ -33,3 +33,55 @@ async function removeRecipe(req, res, next) {
 }
 
 export default removeRecipe;
+
+/**
+ * @swagger
+ * /user/ownRecipe:
+ *    delete:
+ *      summary: Remove created recipe.
+ *      parameters:
+ *        - in: header
+ *          name: Authorization
+ *          schema:
+ *            type: string
+ *          description: Put access token here
+ *       requestBody:
+ *        description: An id of recipe
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                id:
+ *                  type: string
+ *      tags:
+ *        - User
+ *        - Recipes
+ *      responses:
+ *        "200":
+ *          description: Successfully removed product.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      type: object
+ *                      properties:
+ *                          resultMessage:
+ *                              $ref: '#/components/schemas/ResultMessage'
+ *                          resultCode:
+ *                              $ref: '#/components/schemas/ResultCode'
+ *                          recipeId:
+ *                              type: string
+ *        "401":
+ *          description: Invalid token.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ *        "500":
+ *          description: An internal server error occurred, please try again.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ */

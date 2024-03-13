@@ -53,7 +53,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user/send-verification-code:
+ * /auth/send-verification-code:
  *    post:
  *      summary: Sends a verification code to the user.
  *      requestBody:
@@ -67,7 +67,7 @@ export default async (req, res) => {
  *                email:
  *                  type: string
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: The code is sent to your email successfully.

@@ -42,7 +42,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user:
+ * /auth/delete:
  *    delete:
  *      summary: Delete the User
  *      parameters:
@@ -52,7 +52,7 @@ export default async (req, res) => {
  *            type: string
  *          description: Put access token here
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: Your account was deleted successfully.

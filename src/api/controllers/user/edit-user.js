@@ -98,7 +98,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user:
+ * /user/edit:
  *    put:
  *      summary: Edit the Profile Information
  *      parameters:
@@ -108,7 +108,7 @@ export default async (req, res) => {
  *            type: string
  *          description: Put access token here
  *        - in: formData
- *          name: image
+ *          name: avatar
  *          required: false
  *          schema:
  *            type: file

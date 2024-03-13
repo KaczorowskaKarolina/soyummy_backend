@@ -16,7 +16,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user:
+ * /auth/refresh:
  *    get:
  *      summary: Get User Info
  *      parameters:
@@ -26,7 +26,7 @@ export default async (req, res) => {
  *            type: string
  *          description: Put access token here
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: The user information has gotten successfully.

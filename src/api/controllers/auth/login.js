@@ -70,7 +70,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user/login:
+ * /auth/login:
  *    post:
  *      summary: Login
  *      requestBody:
@@ -86,7 +86,7 @@ export default async (req, res) => {
  *                password:
  *                  type: string
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: You logged in successfully.

@@ -24,3 +24,43 @@ export default async (req, res, next) => {
     return next(error);
   }
 };
+
+/**
+ * @swagger
+ * /user/subscribe:
+ *    delete:
+ *      summary: Unsubscribe from newsletter
+ *      parameters:
+ *        - in: header
+ *          name: Authorization
+ *          schema:
+ *            type: string
+ *          description: Put access token here
+ *      tags:
+ *        - User
+ *      responses:
+ *        "200":
+ *          description: Successfully unsubscribed from newsletter.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ *        "400":
+ *          description: User already isn't subscribing.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ *        "401":
+ *          description: Invalid token.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ *        "500":
+ *          description: An internal server error occurred, please try again.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ */

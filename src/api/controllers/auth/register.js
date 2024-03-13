@@ -107,11 +107,11 @@ export default async (req, res, next) => {
 
 /**
  * @swagger
- * /user:
+ * /auth/register:
  *    post:
  *      summary: Registers the user
  *      requestBody:
- *        description: All required information about the user
+ *        description: Email, password and name are required information about the user
  *        required: true
  *        content:
  *          application/json:
@@ -135,7 +135,7 @@ export default async (req, res, next) => {
  *                deviceId:
  *                  type: string
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: You registered successfully.

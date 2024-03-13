@@ -62,7 +62,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user/refresh-token:
+ * /auth/refresh-token:
  *    post:
  *      summary: Refreshes the Access Token
  *      requestBody:
@@ -76,7 +76,7 @@ export default async (req, res) => {
  *                refreshToken:
  *                  type: string
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: The token is refreshed successfully.

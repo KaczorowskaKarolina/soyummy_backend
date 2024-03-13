@@ -24,3 +24,43 @@ export default async (req, res, next) => {
     return next(error);
   }
 };
+
+/**
+ * @swagger
+ * /user/subscribe:
+ *    post:
+ *      summary: Subscribe to newsletter
+ *      parameters:
+ *        - in: header
+ *          name: Authorization
+ *          schema:
+ *            type: string
+ *          description: Put access token here
+ *      tags:
+ *        - User
+ *      responses:
+ *        "200":
+ *          description: Successfully signed to newsletter.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ *        "400":
+ *          description: User already subscribes to newsletter.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ *        "401":
+ *          description: Invalid token.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ *        "500":
+ *          description: An internal server error occurred, please try again.
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                      $ref: '#/components/schemas/Result'
+ */

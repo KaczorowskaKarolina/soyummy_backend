@@ -75,7 +75,7 @@ export default async (req, res) => {
 
 /**
  * @swagger
- * /user/verify-email:
+ * /auth/verify-email:
  *    post:
  *      summary: Verifies the email address of the user.
  *      requestBody:
@@ -91,7 +91,7 @@ export default async (req, res) => {
  *                code:
  *                  type: string
  *      tags:
- *        - User
+ *        - Auth
  *      responses:
  *        "200":
  *          description: Your email address was verified successfully.
